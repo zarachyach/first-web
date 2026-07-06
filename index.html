@@ -1,0 +1,87 @@
+
+zcx<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistem Enkripsi Intranet</title>
+    <style>
+        body {
+            background-color: #0d1117; /* Warna gelap ala GitHub */
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .login-box {
+            background-color: #161b22;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+        input {
+            background-color: #0d1117;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 10px;
+            margin: 10px 0;
+            width: 250px;
+            font-family: 'Courier New', monospace;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #00ff00;
+            color: #000000;
+            border: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #ffffff;
+            box-shadow: 0 0 15px #ffffff;
+        }
+        #pesan {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>TERMINAL LOGIN</h2>
+        <!-- Input Username -->
+        <input type="text" id="username" placeholder="Masukkan Username"><br>
+        <!-- Input Password -->
+        <input type="password" id="password" placeholder="Masukkan Password"><br>
+        <!-- Tombol Login -->
+        <button id="btnLogin">MASUK SISTEM</button>
+        <!-- Tempat menampilkan status sukses/gagal -->
+        <p id="pesan"></p>
+    </div>
+
+    <script>
+        document.getElementById('btnLogin').addEventListener('click', function() {
+            // Mengambil apa yang diketik oleh pengguna
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const statusPesan = document.getElementById('pesan');
+
+            // Logika pengecekan sederhana (Kredensial Hardcoded)
+            if (user === "admin" && pass === "rahasia123") {
+                statusPesan.style.color = "#00ff00";
+                statusPesan.innerHTML = "AKSES DITERIMA. Selamat datang, Agent.";
+            } else {
+                statusPesan.style.color = "#ff0000"; // Mengubah teks jadi merah jika gagal
+                statusPesan.innerHTML = "AKSES DITOLAK. Username atau Password salah!";
+            }
+        });
+    </script>
+
+</body>
+</html>
+
